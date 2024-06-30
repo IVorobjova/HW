@@ -1,0 +1,24 @@
+def process_prices(file_path):
+    total_price = 0.0
+    total_items = 0
+    
+    with open(file_path, 'r') as file:
+        for line in file:
+            try:
+                price = float(line.strip())
+                total_price += price
+                total_items += 1
+            except ValueError:
+                continue
+    
+    return total_price, total_items
+
+def main():
+    file_path = 'prices.txt'
+    total_price, total_items = process_prices(file_path)
+    
+    print(f"Total Price: {total_price}")
+    print(f"Total Items: {total_items}")
+
+if __name__ == "__main__":
+    main()
